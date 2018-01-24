@@ -1,20 +1,37 @@
+var expect = require('chai').expect;
+var should = require('chai').should();
+
 const utils = require('./utils');
+
+var beverages = { tea: ['chai', 'matcha', 'oolong'] };
 
 it("should add two numbers",() => {
     var res = utils.add(11,33);
-    
-    if(res !== 44) {
-        throw new Error("Expected 44,but got ${res}");
-    }
+    expect(res).to.equal(44).to.be.a('number');
 });
 
 it("should square the given number",() => {
     var res = utils.square(4);
+    expect(res).to.equal(16).to.be.a('number');
+    //expect(res).not.to.equal(14);
+});
 
-    if(res !== 16){
-        throw new Error("Expected 16,but got ${res}");
-    }
-})
+it("expect property of object", () => {
+    //expect(beverages).to.have.property('tea').with.lengthOf(3);
+    //expect([1,2,3]).to.include(2);
+    expect({
+        a:1,
+        b:2,
+        c:3
+    }).to.include({
+        b:2
+    });
+});
+
+it('Set the proper username', () => {
+    var user = utils.setName({},"peter liu");
+    expect(user).to.include({firstName:"peter"});
+});
 
 // Example from mocha doc
 /**
