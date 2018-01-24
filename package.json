@@ -4,11 +4,10 @@
   "description": "node tests",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "mocha **/utils-test.js",
     "start": "node server.js"
   },
-  "dependencies": {
-    "lodash": "^4.17.4",
-    "nodemon": "^1.14.11"
+  "devDependencies": {
+    "mocha": "^5.0.0"
   }
 }
